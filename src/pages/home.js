@@ -30,10 +30,26 @@ function Home() {
     setTasks(newTasks);
   };
 
-  // Add remove button function here 
+  // Add remove button function here
+  const removeTask = (index) => {
+    const newTasks = tasks.filter((_,taskindex) =>
+    taskindex !== index);
+    setTasks(newTasks);
+
+  }
 
   return (
     <div>
+      <div class="flex bg-gray-800 text-white top-0 py-3 flex-wrap justify-around bg-silver">
+        <h1 class="text-lg font-semibold">To Do app</h1>
+        <ul class="flex gap-[40px] text-m">
+          <li>Home</li>
+          <li>product</li>
+          <li>about</li>
+          <li>contact</li>
+          <li><a href= '/login'></a></li>
+        </ul>
+      </div>
       <div className="min-h-screen flex items-center justify-center bg-blue-500">
         <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
           <h1 className="text-2xl font-bold text-center mb-4">My To Do List</h1>
@@ -73,7 +89,11 @@ function Home() {
                   </button>
                   
                   {/* Add a remove button here */}
-                  
+                  <button 
+                  onClick={() => removeTask(index)}
+                  className='bg-red-500 text-white px-2 py-1 rounded-lg '>
+                    Remove
+                  </button>
 
 
 
